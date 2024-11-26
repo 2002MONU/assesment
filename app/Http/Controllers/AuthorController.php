@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\Feedback;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use League\CommonMark\Block\Element\FencedCode;
 
 class AuthorController extends Controller
 {
@@ -155,4 +157,23 @@ class AuthorController extends Controller
         Author::find($id)->delete();
         return redirect()->back()->with('success','Author delete successfully');
       }
+
+
+      public function feedback(Request $request)
+      {
+          $query = Feedback::query();
+      
+          // Check for search input and filter results
+          if ($request->has('search')) {
+              $search = $request->input('search');
+              $query->where('useremail', 'like', "%{$search}%")
+                    ->orWhere('author_name', 'like', "%{$search}%")
+                    ->orWhere('book_name', 'like', "%{$search}%");
+          }
+      
+          $users = $query->paginate(10);
+      
+          return view('admin.feedback', compact('users'));
+      }
+      
 }

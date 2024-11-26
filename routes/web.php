@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserRegisterController;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
        Route::get('edit-author/{id}', [AuthorController::class,'editAuthor'])->name('admin.edit-author');
        Route::post('/edit-author-post/{id}', [AuthorController::class,'editAuthorPost'])->name('admin.edit-author-post');
        Route::get('/edit-author-delete/{id}', [AuthorController::class,'editAuthorDelete'])->name('admin.author-delete');
+      Route::get('feedback-details',[AuthorController::class,'feedback'])->name('admin.feedback'); 
     });
 });
  

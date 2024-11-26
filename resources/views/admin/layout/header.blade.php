@@ -92,7 +92,18 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> V </i>
-                                    <span class="item-name">Author Author</span>
+                                    <span class="item-name">Author Details</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{route('admin.feedback')}}">
+                                   <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" width="16" viewBox="0 0 24 24" fill="none">
+                                            <circle cx="12" cy="12" r="7.5" stroke="currentColor"></circle>                                                                    
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> V </i>
+                                    <span class="item-name">Feedback Details</span>
                                 </a>
                             </li>
                         </ul>
